@@ -1,7 +1,15 @@
 {
   "version": 2,
   "builds": [
-    { "src": "src/*", "use": "@vercel/node" }
+    {
+      "src": "dist/main.js",
+      "use": "@vercel/node"
+    }
   ],
-  "outputDirectory": "dist"
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/main.js"
+    }
+  ]
 }
