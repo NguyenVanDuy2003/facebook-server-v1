@@ -6,4 +6,11 @@ export declare class FacebookController {
         uid: any;
         username: any;
     }>;
+    Reaction(IdPost: string, Reaction: string): Promise<string | false>;
+    ReactionComment(IdPost: string, Reaction: string): Promise<string | false>;
+    Comment(IdPost: string, content: string): Promise<string | false>;
+    Like(IdPost: string): Promise<string | false>;
+    LikeComment(IdPost: string): Promise<string | false>;
+    Share(IdPost: string, Content: string): Promise<string | false>;
+    Follow(IdPost: string): Promise<string | false>;
 }
