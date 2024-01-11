@@ -10,10 +10,24 @@ exports.TdsService = void 0;
 const common_1 = require("@nestjs/common");
 const axios_1 = require("axios");
 let TdsService = class TdsService {
-    async getHello() {
+    constructor() {
+        this.tds_token_Job = 'TDS9JSOyVmdlNnI6IiclZXZzJCLiMDMi9ma0V2ZuFmd5VHZiojIyV2c1Jye';
+        this.tds_token = 'TDSQfigjclZXZzJiOiIXZ2V2ciwiIzIzM5VHZ5VHZ5VHZiojIyV2c1Jye';
+    }
+    async getMissions() {
         var config = {
             method: 'get',
-            url: 'https://traodoisub.com/api/?fields=reaction&access_token=TDSQfigjclZXZzJiOiIXZ2V2ciwiIzIzM5VHZ5VHZ5VHZiojIyV2c1Jye',
+            url: `https://traodoisub.com/api/?fields=reaction&access_token=${this.tds_token_Job}`,
+            headers: {},
+        };
+        const response = await (0, axios_1.default)(config);
+        console.log(response.data);
+        return response.data;
+    }
+    async receiveCoins(type, id_job) {
+        var config = {
+            method: 'get',
+            url: `https://traodoisub.com/api/coin/?type=${type}&id=${id_job}&access_token=${this.tds_token}`,
             headers: {},
         };
         const response = await (0, axios_1.default)(config);

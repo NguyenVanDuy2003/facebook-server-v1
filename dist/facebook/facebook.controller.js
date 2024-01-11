@@ -22,6 +22,27 @@ let FacebookController = class FacebookController {
     getInformation(cookie) {
         return this.facebookService.getInformation(cookie);
     }
+    Reaction(IdPost, Reaction) {
+        return this.facebookService.Reactions(IdPost, Reaction);
+    }
+    ReactionComment(IdPost, Reaction) {
+        return this.facebookService.ReactionComment(IdPost, Reaction);
+    }
+    Comment(IdPost, content) {
+        return this.facebookService.Comment(IdPost, content);
+    }
+    Like(IdPost) {
+        return this.facebookService.LikePost(IdPost);
+    }
+    LikeComment(IdPost) {
+        return this.facebookService.LikeCommentPost(IdPost);
+    }
+    Share(IdPost, Content) {
+        return this.facebookService.Share(IdPost, Content);
+    }
+    Follow(IdPost) {
+        return this.facebookService.FollowUser(IdPost);
+    }
 };
 exports.FacebookController = FacebookController;
 __decorate([
@@ -31,6 +52,59 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], FacebookController.prototype, "getInformation", null);
+__decorate([
+    (0, common_1.Post)('/reaction'),
+    __param(0, (0, common_1.Body)('IdPost')),
+    __param(1, (0, common_1.Body)('Reaction')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], FacebookController.prototype, "Reaction", null);
+__decorate([
+    (0, common_1.Post)('/reactioncomment'),
+    __param(0, (0, common_1.Body)('IdPost')),
+    __param(1, (0, common_1.Body)('Reaction')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], FacebookController.prototype, "ReactionComment", null);
+__decorate([
+    (0, common_1.Post)('/comment'),
+    __param(0, (0, common_1.Body)('IdPost')),
+    __param(1, (0, common_1.Body)('content')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], FacebookController.prototype, "Comment", null);
+__decorate([
+    (0, common_1.Post)('/like'),
+    __param(0, (0, common_1.Body)('IdPost')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], FacebookController.prototype, "Like", null);
+__decorate([
+    (0, common_1.Post)('/likecomment'),
+    __param(0, (0, common_1.Body)('IdPost')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], FacebookController.prototype, "LikeComment", null);
+__decorate([
+    (0, common_1.Post)('/share'),
+    __param(0, (0, common_1.Body)('IdPost')),
+    __param(1, (0, common_1.Body)('content')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], FacebookController.prototype, "Share", null);
+__decorate([
+    (0, common_1.Post)('/follow'),
+    __param(0, (0, common_1.Body)('IdPost')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], FacebookController.prototype, "Follow", null);
 exports.FacebookController = FacebookController = __decorate([
     (0, common_1.Controller)('facebook'),
     __metadata("design:paramtypes", [facebook_service_1.FacebookService])
